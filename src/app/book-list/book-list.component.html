@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-header text-white bg-success">Book List</h5>
+  </div>
+  <div class="card-body">
+    
+
+    <div class="table-responsive-sm">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Author</td>
+            <td>ISBN</td>
+            <td>Category</td>
+            <td>Published</td>
+            <td>Quantity</td>
+            <td>Isued</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="SelectedBook(i)" [routerLink]="[i]" routerLinkActive="active"  *ngFor="let book of (bookListState|async).books;let i = index"     >
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.isbn}}</td>
+            <td>{{book.category}}</td>
+            <td>{{book.published | date : format}}</td>
+            <td>{{book.quantity}}</td>
+            <td>{{book.Issued}}</td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

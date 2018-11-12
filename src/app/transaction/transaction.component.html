@@ -1,0 +1,30 @@
+<div class="card-body">
+  
+  <div class="table-responsive-sm">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Action</td>
+            <td>Id</td>
+            
+            <td>Type</td>
+            <td>Borrow Date</td>
+            <td>Return Date</td>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="trhover" *ngFor="let tran of selectedBook.transactions;let i = index"     >
+                <td><button [attr.disabled]="tran.type===true?'':null" type="button" class="btn btn-success btn-sm btn-block" (click)="handleReturn(i)">Return</button></td>
+                <td>{{i}}</td>
+                
+                <td>{{tran.type===false?"Borrowed":"Returned"}}</td>
+                <td>{{tran.borrowDate | date : format}}</td>
+                <td>{{tran.type===true? (tran.returnDate | date : format) : "" }}</td> 
+              </tr>
+        </tbody>
+      </table><hr><br>
+      <button class="btn btn-primary btn-lg btn-block" (click)="onBorrow()">Borrow a Book</button>
+    </div>
+
+</div> 

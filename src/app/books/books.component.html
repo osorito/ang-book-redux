@@ -1,0 +1,13 @@
+<app-book-list></app-book-list>
+<div class="Card">
+    <div class="car-body">
+        <div class="btn-group" role="group" >
+                <button [disabled]="(bookListState|async).editedBookIndex!==-1" class="btn btn-success" (click)="onAdd()">Add</button>
+                <button [disabled]="(bookListState|async).editedBookIndex<0" class="btn btn-warning" (click)="onTran()" >Transactions</button>
+                <button [disabled]="(bookListState|async).editedBookIndex<0" class="btn btn-danger" (click)="onDelete()">Delete</button>
+                <button class="btn btn-dark" (click)="onCancel()">Cancel</button>
+        </div>
+       
+        <router-outlet></router-outlet>
+    </div>
+</div>
