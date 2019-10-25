@@ -12,8 +12,10 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { bookListReducer } from './store/book.reducers';
 import { TransactionComponent } from './transaction/transaction.component';
+import { environment } from 'src/environments/environment';
 
 
 const appRoute : Routes = [
@@ -48,7 +50,8 @@ const appRoute : Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoute),
-    StoreModule.forRoot({bookList: bookListReducer})
+    StoreModule.forRoot({bookList: bookListReducer}),
+    StoreDevtoolsModule.instrument({logOnly: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]
